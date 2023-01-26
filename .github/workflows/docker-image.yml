@@ -24,3 +24,5 @@ jobs:
     - name: push image
       run: |
         docker push ${{vars.DOCKER_USER}}/kube-backup:${{ github.sha }}
+        docker tag ${{vars.DOCKER_USER}}/kube-backup:${{ github.sha }} ${{vars.DOCKER_USER}}/kube-backup:latest
+        docker push ${{vars.DOCKER_USER}}/kube-backup:latest
